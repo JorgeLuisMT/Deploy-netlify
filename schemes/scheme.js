@@ -1,4 +1,4 @@
-import zod from "zod";
+import z from "zod";
 
 const movieScheme = z.object({
   title: z.string({
