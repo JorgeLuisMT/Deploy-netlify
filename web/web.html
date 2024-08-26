@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const containerData = document.createElement("div");
+
+      fetch("http://localhost:3001/movies")
+        .then((res) => res.json())
+        .then((json) => {
+          let html = "";
+          //tambien se puede con foreach
+          json.map((movie) => {
+            html += `
+            <article id=${movie.id}>
+                <h1>${movie.title}</h1>
+                <h2>${movie.year}</h2>
+                <img src="${movie.poster}"/>
+
+                <button>Eliminar</button>
+                </article>
+            `;
+          });
+
+          containerData.innerHTML = html;
+          document.querySelector("body").appendChild(containerData);
+        });
+
+      document.addEventListener("click", (e) => {
+        if (e.target.matches("button")) {
+          const article = e.target.closest("article");
+          const id = article.id;
+          console.log(id);
+          fetch(`http://localhost:3001/movies/${id}`, {
+            method: "DELETE",
+          }).then((res) => {
+            if (res.ok) {
+              article.remove();
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

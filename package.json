@@ -1,0 +1,19 @@
+{
+  "name": "midu-nodejs",
+  "version": "1.0.0",
+  "main": "asincrono-secuencial.js",
+  "scripts": {
+    "build": "netlify deploy --prod",
+    "start": "node functions/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "^4.19.2",
+    "serverless-http": "^3.2.0",
+    "zod": "3.23.8"
+  }
+}
