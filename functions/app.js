@@ -1,9 +1,11 @@
 import express, { Router } from "express";
 import { randomUUID } from "node:crypto";
-import movies from "../movies.json";
 import { valudMovie, validPartialMovie } from "../schemes/scheme.js";
 import cors from "cors";
 import ServerlessHttp from "serverless-http";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const movies = require("./movies.json");
 
 const api = express();
 const router = Router();
