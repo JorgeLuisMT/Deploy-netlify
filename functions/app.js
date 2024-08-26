@@ -15,21 +15,7 @@ api.use(express.json());
 
 //se usa el middleware cors para no tener que aceptar el origen en cada método
 
-api.use(
-  cors({
-    origin: (origin, callback) => {
-      const ACCEPTED_ORIGINS = ["http://127.0.0.1:5500"];
-
-      if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-        return callback(null, true);
-      }
-
-      if (!origin) return callback(null, true);
-
-      return callback(new Error("Not allowed cors"));
-    },
-  })
-);
+api.use(cors());
 
 router.get("/movies", (req, res) => {
   /*   const origin = req.header("origin");
@@ -132,7 +118,7 @@ router.delete("/movies/:id", (req, res) => {
   res.send(200);
 }); */
 
-api.use("/.netlify/functions/app/", router);
+api.use("/.netlify/functions/app/:splat", router);
 
 const PORT = process.env.PORT ?? 3001;
 
