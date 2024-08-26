@@ -132,6 +132,8 @@ router.delete("/movies/:id", (req, res) => {
   res.send(200);
 }); */
 
+api.use("/.netlify/functions/app/", router);
+
 const PORT = process.env.PORT ?? 3001;
 
 //app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

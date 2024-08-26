@@ -2,6 +2,7 @@
   "name": "midu-nodejs",
   "version": "1.0.0",
   "main": "asincrono-secuencial.js",
+  "type": "module",
   "scripts": {
     "build": "netlify deploy --prod",
     "start": "node functions/app.js"
