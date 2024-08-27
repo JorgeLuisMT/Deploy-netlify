@@ -23,7 +23,7 @@ api.use(cors());
   res.send(200);
 }); */
 
-api.use("/.netlify/functions/app/", moviesRouter);
+api.use("/.netlify/functions/app/movies", moviesRouter);
 
 const PORT = process.env.PORT ?? 3001;
 
