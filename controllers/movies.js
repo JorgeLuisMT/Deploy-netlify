@@ -29,7 +29,7 @@ export class MovieController {
 
     const newMovie = await MovieModel.create({ input: result.data });
 
-    res.status(202).json(newMovie);
+    res.status(201).json(newMovie);
   }
 
   static async delete(req, res) {
