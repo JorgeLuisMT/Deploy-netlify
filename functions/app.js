@@ -4,8 +4,6 @@ import ServerlessHttp from "serverless-http";
 import { moviesRouter } from "../router/movies";
 //import { movies } from "./movies.js";
 
-console.log(movies);
-
 const api = express();
 api.disable("x-powered-by"); // deshabilitar este header
 
