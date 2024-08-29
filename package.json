@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "netlify deploy --prod",
-    "start": "node functions/server-sql.js"
+    "start": "node functions/server-sql.mjs"
   },
   "keywords": [],
   "author": "",
