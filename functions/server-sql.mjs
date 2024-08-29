@@ -4,6 +4,6 @@ import { MovieModel } from "../models/serverSQL/movie.js";
 
 import ServerlessHttp from "serverless-http";
 
-const api = createApp({ movieModel: MovieModel });
+const apii = createApp({ movieModel: MovieModel });
 
-export const handler = ServerlessHttp(api);
+export const handler = ServerlessHttp(apii);
