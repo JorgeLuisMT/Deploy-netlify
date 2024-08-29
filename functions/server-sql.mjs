@@ -7,3 +7,4 @@ import ServerlessHttp from "serverless-http";
 const apii = createApp({ movieModel: MovieModel });
 
 export const handler = ServerlessHttp(apii);
+console.log("hola");
