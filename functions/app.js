@@ -1,18 +1,17 @@
 import express from "express";
 import cors from "cors";
-import ServerlessHttp from "serverless-http";
+
 import { createMovieRouter } from "../router/movies.js";
 //import { movies } from "./movies.js";
 
-const api = express();
-api.disable("x-powered-by"); // deshabilitar este header
-
-api.use(express.json());
-
-//se usa el middleware cors para no tener que aceptar el origen en cada método
-
-api.use(cors());
 export const createApp = ({ movieModel }) => {
+  const api = express();
+  api.disable("x-powered-by"); // deshabilitar este header
+
+  api.use(express.json());
+  //se usa el middleware cors para no tener que aceptar el origen en cada método
+
+  api.use(cors());
   /* app.options("/movies/:id", (req, res) => {
     const origin = req.header("origin");
     if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
@@ -23,10 +22,14 @@ export const createApp = ({ movieModel }) => {
     res.send(200);
   }); */
 
-  api.use("/.netlify/functions/app/movies", createMovieRouter({ movieModel }));
+  api.use(
+    "/.netlify/functions/server-sql/movies",
+    createMovieRouter({ movieModel })
+  );
 
   const PORT = process.env.PORT ?? 3001;
 
   api.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+
+  return api;
 };
-export const handler = ServerlessHttp(api);
