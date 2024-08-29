@@ -1,4 +1,4 @@
-import { createApp } from "./app.mjs";
+import { createApp } from "./app.js";
 
 import { MovieModel } from "../models/serverSQL/movie.js";
 
