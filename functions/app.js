@@ -29,7 +29,7 @@ export const createApp = ({ movieModel }) => {
 
   const PORT = process.env.PORT ?? 3001;
 
-  api.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+  //api.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
   return api;
 };
