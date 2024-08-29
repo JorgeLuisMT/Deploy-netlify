@@ -4,7 +4,7 @@ import { movies } from "../../functions/movies.js";
 
 const movies = readJSON("./movies.json"); */
 
-console.log(movies);
+//console.log(movies);
 
 export class MovieModel {
   static async getAll({ genre }) {
