@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import ServerlessHttp from "serverless-http";
+
 import { createMovieRouter } from "../router/movies.js";
 //import { movies } from "./movies.js";
 
@@ -31,4 +31,6 @@ export const createApp = ({ movieModel }) => {
   api.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
   //export const handler = ServerlessHttp(api);
+
+  return api;
 };

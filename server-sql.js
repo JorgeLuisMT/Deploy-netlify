@@ -1,5 +1,5 @@
 import { createApp } from "./functions/app.js";
-
+import ServerlessHttp from "serverless-http";
 import { MovieModel } from "./models/serverSQL/movie.js";
 
-createApp({ movieModel: MovieModel });
+export const handler = ServerlessHttp(createApp({ movieModel: MovieModel }));
